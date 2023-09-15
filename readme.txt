@@ -1,15 +1,22 @@
-This repository contains code for calculating arbitrage opportunities between two Uniswap pools.
+## Introduction
+
+This repository contains the code to calculating arbitrage opportunities between two Uniswap pools. Uniswap is a decentralized exchange (DEX) platform on the Ethereum Blockchain that allows users to trade ERC20 tokens without intermediaries or platform fees. Uniswap utilizes automated market-making algorithms and liquidity pools to facilitate token trading, eliminating the need for traditional order books and matching buyers and sellers.
+
+Each Uniswap smart contract, or pair, manages a liquidity pool made up of reserves of two ERC-20 token. Pairs act as automated market makers, standing ready to accept one token for the other as long as the “constant product” formula is preserved. This formula, most simply expressed as x * y = k, states that trades must not change the product (k) of a pair’s reserve balances (x and y). Because k remains unchanged from the reference frame of a trade, it is often referred to as the invariant. This formula has 
+the desirable property that larger trades (relative to reserves) execute at exponentially worse rates than smaller ones. In practice, Uniswap applies a 0.30% fee to trades, which is added to reserves. As a result, each trade actually increases (k).
+
+The Python code has been split into 4 sections to illustrate how we can have an implement asynchornous trading when there is an arbitrage opportunity between both pools.
+
 
 ## Getting Started
 To get started, install the following dependencies:
+- pip install asyncio
+- pip install math
+- pip install time
 
-pip install asyncio
-pip install math
-pip install time
 
-Once you have installed the dependencies, follow the code in the uniswap.py file
+## Methodology
 
-## PoolStatus
 PoolStatus is a class that contains the following methods:
 1) getPrice - obtain the ETH-DAI relative price
 2) add - add X amount of ETH/DAI into the pool
@@ -33,7 +40,8 @@ The test cases showcase the swapping of both ETH and DAI tokens, as well as how 
 The final section shows the time taken when we consecutively calculate the existence of an arbitrage opportunity as well as excucuting the trade when it exists, till the opportunity disappears.
 
 
-## Readings
-* Uniswap - https://uniswap.org/
-* Arbitrage - https://github.com/ccyanxyz/uniswap-arbitrage-analysis
-* Asyncio - https://docs.python.org/3/library/asyncio.html
+## Author
+
+Jovi Lim Ke Wei
+linkedin.com/jovi-lim-ke-wei/
+National University of Singapore MSc. Quantitative Finance
